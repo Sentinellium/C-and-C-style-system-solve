@@ -22,9 +22,10 @@ void solu(int** Matrix,int len)
            }
            det[0] += pro;
            pro = 1;
-           k = i;
+           k = i + 1;
 
        }
+
 
 
        for(int i = 0; i < len; i++){
@@ -37,7 +38,7 @@ void solu(int** Matrix,int len)
            }
            det[0] -= pro;
            pro = 1;
-           k = i;
+           k = i + 1;
        }
        if(det[0] == 0){
            cout <<"det = 0";
@@ -45,7 +46,7 @@ void solu(int** Matrix,int len)
 
 
 
-       for(int s=0; s<len-1;s++){
+       for(int s=0; s<len;s++){
            int k = 0;
            int pro = 1;
 
@@ -54,7 +55,7 @@ void solu(int** Matrix,int len)
                for(int m = 0; m<len; m++)
                {
                    if(s == k)
-                       pro *= Matrix[len-1][k];
+                       pro *= Matrix[m][len];
                    else
                        pro *= Matrix[m][k];
                    if(k == len - 1)
@@ -63,15 +64,15 @@ void solu(int** Matrix,int len)
                }
                det[s+1] += pro;
                pro = 1;
-               k = i;
+               k = i + 1;
            }
-
+       cout <<1;
 
            for(int i = 0; i < len; i++){
                for(int m = 0; m<len; m++)
                {
                    if(s == k)
-                       pro *= Matrix[len-1][k];
+                       pro *= Matrix[m][len];
                    else
                        pro *= Matrix[m][k];
                    if(k == 0)
@@ -80,7 +81,7 @@ void solu(int** Matrix,int len)
                }
                det[s+1] -= pro;
                pro = 1;
-               k = i;
+               k = i + 1;
            }
            float e = det[s+1]/det[0];
            cout <<e<<endl;
@@ -97,8 +98,8 @@ int main()
     int **Matrix = new int*[len];
     for(int i = 0; i<len;i++)
    {
-           Matrix[i] = new int[len];
-           for(int k = 0; k < len; k++){
+           Matrix[i] = new int[len + 1];
+           for(int k = 0; k < len + 1; k++){
                Matrix[i][k] = rand() % 10;
            }
    }
