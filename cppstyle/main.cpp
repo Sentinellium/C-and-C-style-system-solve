@@ -45,13 +45,13 @@ class mymatrix
                     if(k == len - 1)
                         k = 0;
                     k++;
-                    cout <<1<<"      ";
                 }
                 det[0] += pro;
                 pro = 1;
-                k = i+1;
+                k = i + 1;
 
             }
+            cout<<2;
 
 
             for(int i = 0; i < len; i++){
@@ -81,7 +81,7 @@ class mymatrix
                     for(int m = 0; m<len; m++)
                     {
                         if(s == k)
-                            pro *= Matrix[len-1][k];
+                            pro *= Matrix[m][len];
                         else
                             pro *= Matrix[m][k];
                         if(k == len - 1)
@@ -98,7 +98,7 @@ class mymatrix
                     for(int m = 0; m<len; m++)
                     {
                         if(s == k)
-                            pro *= Matrix[len-1][k];
+                            pro *= Matrix[m][len];
                         else
                             pro *= Matrix[m][k];
                         if(k == 0)
@@ -120,7 +120,7 @@ class mymatrix
 
 int main()
 {
-    mymatrix x(5);
+    mymatrix x(4);
     x.solu();
     return 0;
 }
